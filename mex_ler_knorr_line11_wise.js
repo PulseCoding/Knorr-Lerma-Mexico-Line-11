@@ -102,6 +102,7 @@ var SBoxFormerct = null,
     SBoxFormerflagRunning = false;
 var CasePackerct = null,
     CasePackerresults = null,
+    CntInCasePacker8 = null,
     CntInCasePacker = null,
     CntOutCasePacker = null,
     CasePackeractual = 0,
@@ -320,6 +321,7 @@ client1.on('connect', function(err) {
 client2.on('connect', function(err) {
           intId2 = setInterval(function(){
               client2.readHoldingRegisters(0, 16).then(function(resp) {
+                CntInCasePacker8 = joinWord(resp.register[6], resp.register[7]) + joinWord(resp.register[8], resp.register[9]);
                 CntOutBoxFormer = joinWord(resp.register[10], resp.register[11]) + joinWord(resp.register[12], resp.register[13]) + joinWord(resp.register[14], resp.register[15]);
               });//Cierre de lectura
 
@@ -570,6 +572,7 @@ client2.on('connect', function(err) {
               CasePackerresults = {
                 ST: CasePackerstate,
                 CPQICARTON : CntInCasePacker,
+                CPQI8C: CntInCasePacker8,
                 CPQISBOX : CntOutSBoxFormer,
                 CPQO:  CntOutCasePacker,
                 SP: CasePackerspeed
