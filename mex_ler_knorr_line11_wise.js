@@ -572,7 +572,7 @@ client2.on('connect', function(err) {
               CasePackerresults = {
                 ST: CasePackerstate,
                 CPQICARTON : CntInCasePacker,
-                CPQI: CntInCasePacker8,
+                //CPQI: CntInCasePacker8,
                 CPQISBOX : CntOutSBoxFormer,
                 CPQO:  CntOutCasePacker,
                 SP: CasePackerspeed
